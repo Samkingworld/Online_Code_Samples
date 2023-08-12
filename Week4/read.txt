@@ -1,0 +1,7 @@
+Installation of JDK/SDK and IDE (IntelliJ)
+Step 1: Download the JDK:
+Open a web browser and go to the Oracle JDK download page: Java Downloads | Oracle
+Click on the "Java SE Development Kit 20 Downloads" section.
+Accept the license agreement by selecting the checkbox next to "Accept License Agreement".
+Choose the JDK installer according to your operating system. For Windows, download the appropriate JDK installer for your system (x64 for 64-bit or x86 for 32-bit).
+Click on the download link to start downloading the JDK installer.
