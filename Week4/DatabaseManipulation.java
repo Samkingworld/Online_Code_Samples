@@ -1,6 +1,7 @@
 package Online_Code_Samples.Week4;
 
 import OffLine.ConnectionDetails;
+import OffLine.thread.ThreadColor;
 
 import java.io.BufferedReader;
 import java.io.File;
@@ -102,12 +103,13 @@ public class DatabaseManipulation {
             assert connection != null;
             Statement statement = connection.createStatement();
             String update = String.format("UPDATE %s SET age=%d, teck_skill='%s', location='%s' WHERE name='%s'", getTABLE_NAME(), age, techSkill, location, name);
-            statement.execute(update);
-            return true;
+            if (statement.execute(update))
+                return true;
         } catch (SQLException exception) {
             System.out.println(exception.getMessage());
             return false;
         }
+        return false;
     }
 
     public boolean deleteRecord(String name) {
@@ -167,8 +169,11 @@ public class DatabaseManipulation {
 //        boolean delete = manipulation.deleteRecord("Doris You");
 //        System.out.println(delete);
 
-        boolean update = manipulation.updateRecord("Mike Pence", 47, "Web 3" , "Abidjan");
-        System.out.println(update);
+        boolean update = manipulation.updateRecord("Mike Poo", 47, "Web 3" , "Abidjan");
+        if(update)
+        System.out.println(String.valueOf(true) + ThreadColor.ANSI_GREEN);
+        else
+            System.out.println(String.valueOf(false) + ThreadColor.ANSI_RED);
     }
 
 

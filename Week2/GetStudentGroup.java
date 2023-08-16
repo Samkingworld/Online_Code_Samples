@@ -1,13 +1,10 @@
 package Online_Code_Samples.Week2;
 
-import OffLine.Week5.Student;
+import Online_Code_Samples.Week5.Student;
 
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 
-public class GetStudentGroup {
+public class GetStudentGroup  {
 
     public static Map<Integer, List<Student>> groupStudent(List<Student> students){
         Map<Integer, List<Student>> groupedStudents = new HashMap<>();
@@ -42,16 +39,29 @@ public class GetStudentGroup {
         student.add(fourth);
         student.add(fifth);
 
-        Map<Integer, List<Student>> result = groupStudent(student);
+        //Used to test for a condition: returns true or false;
+//        Predicate<Student> predicate = (stud) -> stud.getAge() < 30;
+//        student.stream().filter(predicate).forEach(System.out::println);
 
-        for( Integer key: result.keySet() ){
-            System.out.println("Key is " + key);
-           List<Student> list = result.get(key);
-           for( Student st: list ){
-               System.out.println(st);
-           }
-        }
+        Comparator<Student> nameComparator = (s, s2) -> s.getName().compareTo(s2.getName());
+        Comparator<Student> scoreComparator = (s, s1 ) -> s.getScore() - s1.getScore();
+        Comparator<Student> ageComparator = (s, s1 ) -> s.getAge() - s1.getAge();
+        student.stream().sorted(ageComparator).forEach(System.out::println);
+
+
+
+
+//        Map<Integer, List<Student>> result = groupStudent(student);
+//
+//        for( Integer key: result.keySet() ){
+//            System.out.println("Key is " + key);
+//           List<Student> list = result.get(key);
+//           for( Student st: list ){
+//               System.out.println(st);
+//           }
+//        }
     }
+
 
 
 }
