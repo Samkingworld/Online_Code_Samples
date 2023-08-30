@@ -1,7 +1,5 @@
 package Online_Code_Samples.Week2;
 
-import Online_Code_Samples.Week5.Student;
-
 import java.util.*;
 
 public class GetStudentGroup  {
