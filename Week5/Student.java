@@ -4,7 +4,7 @@ public class Student {
 
     private String name;
     private int age;
-    private int score;
+    private final int score;
     private char grade;
 
     public Student(String name, int age, int score){
@@ -16,15 +16,15 @@ public class Student {
 
     private char setGrade(int score){
         if(score >= 70){
-            return 'A';
+            this.grade = 'A';
+        } else if(score >= 60){
+            this.grade = 'B';
+        }else if(score >= 50){
+            this.grade = 'C';
+        }else {
+            this.grade = 'D';
         }
-        if(score >= 60){
-            return 'B';
-        }
-        if(score >= 50){
-            return 'C';
-        }
-        return 'D';
+        return this.grade;
     }
 
     public char getGrade() {
@@ -49,10 +49,6 @@ public class Student {
 
     public int getScore() {
         return score;
-    }
-
-    public void setScore(int score) {
-        this.score = score;
     }
 
     @Override

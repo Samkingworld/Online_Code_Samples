@@ -11,7 +11,7 @@ public class LinkedListDemo {
         for(int i = 1; i <= 5; i++){
             String name = "Student" + i;
             Random random = new Random();
-            studentList.add(new Student(name, random.nextInt(20, 50), random.nextInt(45, 99)));
+            studentList.add(new Student(name, random.nextInt(20, 40), random.nextInt(45, 99)));
         }
 
         Map<Integer, String> studentMap = new HashMap<>();
@@ -24,7 +24,7 @@ public class LinkedListDemo {
 
 
         for( Integer x: studentMap.keySet() ){
-//            System.out.println(studentMap.get(x));
+            System.out.println(studentMap.get(x));
         }
 
         Predicate<Student> predicate = n -> n.getAge() <= 35;
@@ -32,7 +32,7 @@ public class LinkedListDemo {
         studentList.stream().filter(predicate).forEach(System.out::println);
 
         Function<Student, String> stringFunction = (s) -> s.getScore() + " is your mark Mr. " + s.getName();
-//        studentList.stream().map(stringFunction).forEach(System.out::println);
+        studentList.stream().map(stringFunction).forEach(System.out::println);
 
     }
 }
